@@ -1,6 +1,11 @@
 ﻿namespace MegaEcommerce.API.Startup
 {
-    public class ConfigureServices
+    public static class ConfigureServices
     {
+        public static IServiceCollection ConfigureProjectServices(this IServiceCollection service,IConfiguration configuration)
+        {
+            service.AddControllers();
+            return service;
+        }
     }
 }

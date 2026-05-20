@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MegaEcommerce.Domain.Entities
+{
+    public class City : BaseEntity
+    {
+        public string Name { get; set; } = null!;
+
+        public Guid StateId { get; set; }
+
+        public State State { get; set; } = null!;
+
+    }
+}
