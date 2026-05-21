@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MegaEcommerce.Domain.Enums;
+using Microsoft.AspNetCore.Identity;
 
 namespace MegaEcommerce.Domain.Entities
 {
@@ -8,6 +9,8 @@ namespace MegaEcommerce.Domain.Entities
         public string LastName { get; set; } = string.Empty;
         public string? ProfileUrl { get; set; }
         public string? RefreshToken  {get;set;}
+        public UserRoleEnum Role { get; set; }
+
         public DateTime TokenExpiredTime { get; set; }
 
         public bool IsDeleted { get; set; } = false;
@@ -20,15 +23,15 @@ namespace MegaEcommerce.Domain.Entities
 
 
         // A User Create Many Product
+        public ICollection<Product> Products { get; set; } = new List<Product>();
+
         public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
         // A User Can Create Many Categories
         public ICollection<Category> Categories { get; set; } = new List<Category>();
 
-        // A User Has Many CartItems
-        // A User Has Many FavouriteProducts
         // A User Has Many Orders
-        // A User Has Many Transaction Transactions
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
-
+        public ICollection<Review> Reviews { get; set; } = new List<Review>(); 
     }
 }

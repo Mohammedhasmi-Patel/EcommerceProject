@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MegaEcommerce.Domain.Enums
+namespace MegaEcommerce.Infrastructure.Configurations
 {
-    public enum UserRoleEnum
+    internal class CityConfiguration
     {
-        SuperAdmin = 0,
-        Customer = 1
-
     }
 }

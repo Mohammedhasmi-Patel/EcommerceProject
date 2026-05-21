@@ -6,6 +6,7 @@ namespace MegaEcommerce.Domain.Entities
     public class UserAddress : BaseEntity
     {
         [Key]
+        public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public string RecipientName { get; set; } = null!;
         public string PhoneNumber { get; set; } = null!;

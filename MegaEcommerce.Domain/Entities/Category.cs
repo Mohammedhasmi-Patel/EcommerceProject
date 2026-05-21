@@ -1,4 +1,7 @@
 ﻿
+using MegaEcommerce.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace MegaEcommerce.Domain.Entities
@@ -23,3 +26,5 @@ namespace MegaEcommerce.Domain.Entities
 
     }
 }
+
+//CategoryConfiguration
