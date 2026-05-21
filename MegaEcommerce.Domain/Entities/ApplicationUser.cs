@@ -10,6 +10,11 @@ namespace MegaEcommerce.Domain.Entities
         public string? RefreshToken  {get;set;}
         public DateTime TokenExpiredTime { get; set; }
 
+        public bool IsDeleted { get; set; } = false;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
+
         // A User has Many Address 
         public ICollection<UserAddress> UserAddresses { get; set; } = new List<UserAddress>();
 
@@ -23,6 +28,7 @@ namespace MegaEcommerce.Domain.Entities
         // A User Has Many FavouriteProducts
         // A User Has Many Orders
         // A User Has Many Transaction Transactions
+        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 
     }
 }

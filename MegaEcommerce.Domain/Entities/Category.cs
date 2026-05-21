@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MegaEcommerce.Domain.Entities
 {
-    public class Category
+    public class Category : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

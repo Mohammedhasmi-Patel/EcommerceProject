@@ -2,7 +2,7 @@
 
 namespace MegaEcommerce.Domain.Entities
 {
-    public class CartItem : BaseEntity
+    public class CartItem 
     {
         /* for the new price whenever the current user access its cart price at that time we will compare with
          * products price if it is different then we will update the cart price
@@ -20,6 +20,9 @@ namespace MegaEcommerce.Domain.Entities
 
         // (UnitPrice - DiscountAmount) * Quantity
         public decimal SubTotal { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }
+
 
         // Last time synced with latest product price
         public DateTime LastSyncedAt { get; set; }
