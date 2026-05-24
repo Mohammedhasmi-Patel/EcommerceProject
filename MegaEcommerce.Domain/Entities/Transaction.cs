@@ -10,6 +10,8 @@ namespace MegaEcommerce.Domain.Entities
     public class Transaction : BaseEntity
     {
         public Guid Id { get; set; }
+        public Guid OrderId { get; set; }
+
         public Guid UserId { get; set; }
         public string TransactionId { get; set; } = null!;
         public string Gateway { get; set; } = null!;
@@ -20,6 +22,9 @@ namespace MegaEcommerce.Domain.Entities
         public string? GatewayResponse { get; set; }
 
         public DateTime? PaymentDate { get; set; }
+
+        public ApplicationUser User { get; set; } = null!;
+        public Order Order { get; set; } = null!;
 
 
     }

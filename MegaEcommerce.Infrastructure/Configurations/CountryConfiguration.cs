@@ -1,12 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MegaEcommerce.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace MegaEcommerce.Infrastructure.Configurations
 {
-    internal class CountryConfiguration
+    public class CountryConfiguration : IEntityTypeConfiguration<Country>
     {
+        public void Configure(EntityTypeBuilder<Country> builder)
+        {
+            builder.ToTable("Countries");
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Name)
+                   .HasMaxLength(100)
+                   .IsRequired();
+
+            builder.Property(x => x.CountryCode)
+                   .HasMaxLength(10)
+                   .IsRequired();
+
+            builder.HasIndex(x => x.CountryCode)
+                   .IsUnique();
+        }
     }
 }
