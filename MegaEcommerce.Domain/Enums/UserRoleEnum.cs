@@ -8,8 +8,8 @@ namespace MegaEcommerce.Domain.Enums
 {
     public enum UserRoleEnum
     {
-        SuperAdmin = 0,
-        Customer = 1
+        SuperAdmin,
+        Customer
 
     }
 }

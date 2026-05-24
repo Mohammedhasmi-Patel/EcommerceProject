@@ -25,9 +25,9 @@ namespace MegaEcommerce.Domain.Entities
 
         public PaymentStatusEnum PaymentStatus { get; set; }
 
-        public PaymentMethodEnum PaymentMethod { get; set; } = null!;
+        public PaymentMethodEnum PaymentMethod { get; set; }
 
-        public OrderStatusEnum Status { get; set; } = null!;
+        public OrderStatusEnum Status { get; set; }
 
         // Navigation Properties
         public ApplicationUser User { get; set; } = null!;

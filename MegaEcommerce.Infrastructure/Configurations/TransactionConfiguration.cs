@@ -16,13 +16,17 @@ namespace MegaEcommerce.Infrastructure.Configurations
                    .IsRequired()
                    .HasMaxLength(200);
 
+            builder.HasOne(t => t.Order)
+                    .WithMany(o => o.Transactions)
+                    .HasForeignKey(t => t.OrderId);
+
 
             builder.Property(t => t.Gateway)
                    .IsRequired()
                    .HasMaxLength(100);
 
             builder.Property(t => t.PaymentMethod)
-                   .HasConversion<>()
+                   .HasConversion<string>()
                    .IsRequired();
 
             builder.Property(t => t.Amount)
@@ -30,18 +34,17 @@ namespace MegaEcommerce.Infrastructure.Configurations
                    .IsRequired();
 
             builder.Property(t => t.Status)
-                   .HasConversion<int>()
+                   .HasConversion<string>()
                    .IsRequired();
 
             builder.Property(t => t.GatewayResponse)
                    .HasMaxLength(4000);
 
             builder.HasIndex(t => t.UserId);
+            builder.HasIndex(t => t.OrderId);
 
 
-            // Transaction has UserId FK; Transaction model currently has no User navigation property.
-            // Configure principal by type to map to ApplicationUser.Transactions collection.
-            builder.HasOne<ApplicationUser>()
+            builder.HasOne(t => t.User)
                    .WithMany(u => u.Transactions)
                    .HasForeignKey(t => t.UserId)
                    .OnDelete(DeleteBehavior.Cascade);

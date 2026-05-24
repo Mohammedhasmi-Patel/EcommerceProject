@@ -10,9 +10,6 @@ namespace MegaEcommerce.Infrastructure.Configurations
         {
             builder.ToTable("UserAddresses");
 
-            // Current model uses UserId as the key (see domain model).
-            // Keep existing key to match current model; consider changing the domain model
-            // to use a dedicated Id GUID for proper one-to-many mapping.
             builder.HasKey(ua => ua.UserId);
 
             builder.Property(ua => ua.RecipientName)
@@ -40,33 +37,29 @@ namespace MegaEcommerce.Infrastructure.Configurations
             builder.Property(ua => ua.IsDefault)
                    .HasDefaultValue(false);
 
-            // Indexes
-            builder.HasIndex(ua => ua.UserId).HasDatabaseName("IX_UserAddresses_UserId");
-            builder.HasIndex(ua => ua.IsDefault).HasDatabaseName("IX_UserAddresses_IsDefault");
+            builder.Property(ua => ua.City)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
-            // Relationships
-            // UserAddress.UserId -> ApplicationUser.Id
+            builder.Property(ua => ua.State)
+                   .IsRequired()
+                   .HasMaxLength(100);
+
+
+            builder.Property(ua => ua.Country)
+                   .IsRequired()
+                   .HasMaxLength(100);
+
+
+            // Indexes
+            builder.HasIndex(ua => ua.UserId);
+            builder.HasIndex(ua => ua.IsDefault);
+
             builder.HasOne(ua => ua.User)
                    .WithMany(u => u.UserAddresses)
                    .HasForeignKey(ua => ua.UserId)
                    .OnDelete(DeleteBehavior.Cascade);
 
-            // Country / State / City are configured as reference lookups.
-            // These entities do not declare a collection of UserAddress, so configure as WithMany() without navigation.
-            builder.HasOne(ua => ua.Country)
-                   .WithMany()
-                   .HasForeignKey(ua => ua.CountryId)
-                   .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(ua => ua.State)
-                   .WithMany()
-                   .HasForeignKey(ua => ua.StateId)
-                   .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(ua => ua.City)
-                   .WithMany()
-                   .HasForeignKey(ua => ua.CityId)
-                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -21,16 +21,7 @@ namespace MegaEcommerce.Infrastructure.Data
         {
             base.OnModelCreating(builder);
 
-
-            #region start user
-
-            builder.Entity<ApplicationUser>().HasKey(u => u.Id);
-            builder.Entity<ApplicationUser>().ToTable("Users");
-
-
-
-            #endregion
-
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }

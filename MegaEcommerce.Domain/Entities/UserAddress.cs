@@ -11,9 +11,9 @@ namespace MegaEcommerce.Domain.Entities
         public string RecipientName { get; set; } = null!;
         public string PhoneNumber { get; set; } = null!;
         public string? Landmark { get; set; }
-        public Guid CountryId { get; set; }
-        public Guid StateId { get; set; }
-        public Guid CityId { get; set; }
+        public string Country { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
         public string AddressLine1 { get; set; } = null!;
         public string? AddressLine2 { get; set; }
         public string ZipCode { get; set; } = null!;
@@ -21,8 +21,5 @@ namespace MegaEcommerce.Domain.Entities
 
         public ApplicationUser User { get; set; } = null!;
 
-        public Country Country { get; set; } = null!;
-        public State State { get; set; } = null!;
-        public City City { get; set; } = null!;
     }
 }

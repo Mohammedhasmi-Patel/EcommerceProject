@@ -3,12 +3,12 @@ namespace MegaEcommerce.Domain.Enums
 {
     public enum OrderStatusEnum
     {
-        Pending = 1,
-        Confirmed = 2,
-        Processing = 3,
-        Shipped = 4,
-        Delivered = 5,
-        Cancelled = 6
+        Pending ,
+        Confirmed ,
+        Processing ,
+        Shipped ,
+        Delivered ,
+        Cancelled 
 
     }
 }
