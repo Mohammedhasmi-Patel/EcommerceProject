@@ -1,0 +1,1 @@
+﻿DELETE FROM Countries where 1= 1;

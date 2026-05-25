@@ -13,8 +13,13 @@ namespace MegaEcommerce.Infrastructure.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
+                   .HasMaxLength(300)
+                   .IsRequired();
+
+            builder.Property(x => x.Iso2)
                    .HasMaxLength(100)
                    .IsRequired();
+
 
             builder.HasOne(s => s.Country)
                    .WithMany(c => c.States)

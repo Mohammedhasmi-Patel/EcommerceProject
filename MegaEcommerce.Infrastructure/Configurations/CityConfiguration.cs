@@ -18,8 +18,18 @@ namespace MegaEcommerce.Infrastructure.Configurations
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name)
-                    .HasMaxLength(50)
+                    .HasMaxLength(300)
                     .IsRequired();
+
+            builder.Property(x => x.Latitude)
+                        .HasMaxLength(50)
+                        .IsRequired();
+
+            builder.Property(x => x.Longitude)
+                        .HasMaxLength(50)
+                        .IsRequired();
+
+
             builder.HasOne(c => c.State)
                     .WithMany(s => s.Cities)
                     .HasForeignKey(c => c.StateId);

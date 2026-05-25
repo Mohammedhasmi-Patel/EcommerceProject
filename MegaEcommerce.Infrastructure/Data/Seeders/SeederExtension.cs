@@ -17,8 +17,8 @@ namespace MegaEcommerce.Infrastructure.Data.Seeders
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            await CountrySeeder.SeedAsync(context);
             await UserSeeder.SeedAsync(userManager);
+            await LocationSeeder.SeedAsync(context);
 
 
 

@@ -10,7 +10,8 @@ namespace MegaEcommerce.Domain.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = null!;
-
+        public string Latitude { get; set; } = null!;
+        public string Longitude { get; set; } = null!;
         public Guid StateId { get; set; }
 
         public State State { get; set; } = null!;
