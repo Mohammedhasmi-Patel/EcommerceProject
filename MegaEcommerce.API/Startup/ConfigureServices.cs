@@ -1,19 +1,20 @@
-﻿using MegaEcommerce.Infrastructure.Data;
+﻿using MegaEcommerce.Domain.Entities;
+using MegaEcommerce.Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace MegaEcommerce.API.Startup
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection ConfigureProjectServices(this IServiceCollection service,IConfiguration configuration)
+        public static IServiceCollection ConfigureProjectServices(this IServiceCollection service)
         {
             service.AddControllers();
-            string dbUrl = configuration.GetConnectionString("Default");
+            service.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
+                                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                                    .AddDefaultTokenProviders();
 
-            service.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(dbUrl);
-            });
+
             return service;
         }
     }
