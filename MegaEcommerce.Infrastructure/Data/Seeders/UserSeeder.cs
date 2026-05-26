@@ -18,6 +18,35 @@ namespace MegaEcommerce.Infrastructure.Data.Seeders
                 return; // Agar data hai, to yahi se baahar nikal jayein
             }
 
+            var superAdmin = new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Hasmi",
+                LastName = "Patel",
+                Email = "superhasmi@gmail.com",
+                UserName = "superadmin",
+                EmailConfirmed = true,
+                Role = UserRoleEnum.SuperAdmin,
+                ProfileUrl = "https://i.pravatar.cc/300?img=1",
+                RefreshToken = Guid.NewGuid().ToString(),
+                TokenExpiredTime = DateTime.UtcNow.AddDays(30),
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+                IsDeleted = false
+            };
+
+            var superAdminResult = await userManager.CreateAsync(
+                superAdmin,
+                "Admin@123");
+
+            if (!superAdminResult.Succeeded)
+            {
+                foreach (var error in superAdminResult.Errors)
+                {
+                    Console.WriteLine(error.Description);
+                }
+            }
+
             var faker = new Faker<ApplicationUser>("en_IND")
                             
                         .RuleFor(x => x.Id, _ => Guid.NewGuid())
@@ -69,6 +98,8 @@ namespace MegaEcommerce.Infrastructure.Data.Seeders
                 }
 
             }
+
+
 
             Console.WriteLine("Seeding success Users");
 

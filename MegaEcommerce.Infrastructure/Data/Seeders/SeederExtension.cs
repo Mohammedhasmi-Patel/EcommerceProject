@@ -1,5 +1,7 @@
 ﻿using MegaEcommerce.Domain.Entities;
+using MegaEcommerce.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,8 +19,10 @@ namespace MegaEcommerce.Infrastructure.Data.Seeders
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            await UserSeeder.SeedAsync(userManager);
-            await LocationSeeder.SeedAsync(context);
+            //await UserSeeder.SeedAsync(userManager);
+            //await LocationSeeder.SeedAsync(context);
+            var superadmin = await context.Users.FirstOrDefaultAsync(x => x.Role == UserRoleEnum.SuperAdmin); 
+            await CategorySeeder.SeedAsync(context,superadmin.Id,100);
 
 
 

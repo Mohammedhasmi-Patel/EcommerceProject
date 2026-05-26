@@ -1,1 +1,1 @@
-﻿SELECT CO FROM Cities;
+﻿EXEC sp_help 'Users';
