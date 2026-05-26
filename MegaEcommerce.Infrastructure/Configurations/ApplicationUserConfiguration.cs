@@ -17,7 +17,7 @@ namespace MegaEcommerce.Infrastructure.Configurations
             builder.Property(u => u.ProfileUrl).HasMaxLength(250);
             builder.Property(u => u.RefreshToken).HasMaxLength(500);
             builder.Property(u => u.Role).HasConversion<string>().IsRequired();
-            builder.Property(u => u.TokenExpiredTime).IsRequired();
+            builder.Property(u => u.TokenExpiredTime);
 
             builder.HasIndex(u => u.NormalizedUserName)
                    .HasDatabaseName("IX_Users_NormalizedUserName")

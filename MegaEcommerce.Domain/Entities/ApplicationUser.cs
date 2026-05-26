@@ -11,7 +11,7 @@ namespace MegaEcommerce.Domain.Entities
         public string? RefreshToken  {get;set;}
         public UserRoleEnum Role { get; set; }
 
-        public DateTime TokenExpiredTime { get; set; }
+        public DateTime? TokenExpiredTime { get; set; }
 
         public bool IsDeleted { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

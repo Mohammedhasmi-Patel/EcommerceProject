@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.16">
       <PrivateAssets>all</PrivateAssets>
@@ -21,9 +17,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MegaEcommerce.Application\MegaEcommerce.Application.csproj" />
     <ProjectReference Include="..\MegaEcommerce.Domain\MegaEcommerce.Domain.csproj" />
     <ProjectReference Include="..\MegaEcommerce.Infrastructure\MegaEcommerce.Infrastructure.csproj" />
   </ItemGroup>

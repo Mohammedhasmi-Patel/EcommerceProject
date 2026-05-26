@@ -21,8 +21,8 @@ namespace MegaEcommerce.Infrastructure.Data.Seeders
 
             //await UserSeeder.SeedAsync(userManager);
             //await LocationSeeder.SeedAsync(context);
-            var superadmin = await context.Users.FirstOrDefaultAsync(x => x.Role == UserRoleEnum.SuperAdmin); 
-            await CategorySeeder.SeedAsync(context,superadmin.Id,100);
+            //var superadmin = await context.Users.FirstOrDefaultAsync(x => x.Role == UserRoleEnum.SuperAdmin); 
+            //await CategorySeeder.SeedAsync(context,superadmin.Id,100);
 
 
 

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaEcommerce.Domain", "Meg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaEcommerce.Infrastructure", "MegaEcommerce.Infrastructure\MegaEcommerce.Infrastructure.csproj", "{4330A677-E58E-AA57-EC37-EB3EF2FD57B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaEcommerce.Application", "MegaEcommerce.Application\MegaEcommerce.Application.csproj", "{8194E8D4-6FAF-4C2D-BEED-805FFC7A56D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4330A677-E58E-AA57-EC37-EB3EF2FD57B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4330A677-E58E-AA57-EC37-EB3EF2FD57B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4330A677-E58E-AA57-EC37-EB3EF2FD57B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8194E8D4-6FAF-4C2D-BEED-805FFC7A56D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8194E8D4-6FAF-4C2D-BEED-805FFC7A56D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8194E8D4-6FAF-4C2D-BEED-805FFC7A56D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8194E8D4-6FAF-4C2D-BEED-805FFC7A56D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
